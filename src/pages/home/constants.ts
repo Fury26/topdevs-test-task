@@ -1,4 +1,6 @@
-export const months = [
+import moment from 'moment';
+
+let _months = [
 	'January',
 	'February',
 	'March',
@@ -12,6 +14,9 @@ export const months = [
 	'November',
 	'December',
 ];
+const current = moment().month();
+const beforePart = _months.splice(0, current);
+export const months = [..._months, ...beforePart];
 export const alphabet = [
 	'a',
 	'b',

@@ -14,7 +14,7 @@ type Props = {
 const LetterEmployees: React.FC<Props> = ({ letter, employees, changeIsActive }) => {
 	return (
 		<div className="letter-container">
-			<h2 className="letter-container-name">Letter: {letter}</h2>
+			<h2 className="letter-container-name">{letter.toUpperCase()}:</h2>
 			<div className="letter-container-employees">
 				{employees.length ? (
 					employees.map((e) => (
