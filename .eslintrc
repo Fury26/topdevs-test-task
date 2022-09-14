@@ -1,6 +1,6 @@
 {
 	"extends": ["react-app", "prettier"],
-	"plugins": ["import", "simple-import-sort", "prettier"],
+	"plugins": ["react", "import", "simple-import-sort", "prettier"],
 	"env": {
 		"browser": true,
 		"es6": true
