@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { useCallback } from 'react';
 import moment from 'moment';
-import { useAppDispatch, useAppSelector } from 'store';
+import { useAppSelector } from 'store';
 
 import { months } from 'pages/home/constants';
 
@@ -13,7 +14,7 @@ const Birthdays: React.FC = () => {
 
 	const [sorted, setSorted] = useState<Map<string, typeof employees>>();
 
-	const sortByDate = () => {
+	const sortByDate = useCallback(() => {
 		const map = new Map<string, typeof employees>();
 		for (let i = 0; i < employees.length; i++) {
 			const e = employees[i];
@@ -30,11 +31,11 @@ const Birthdays: React.FC = () => {
 			}
 		}
 		setSorted(map);
-	};
+	}, [employees]);
 
 	useEffect(() => {
 		sortByDate();
-	}, [employees]);
+	}, [employees, sortByDate]);
 
 	const lettersJsx = useMemo(
 		() =>

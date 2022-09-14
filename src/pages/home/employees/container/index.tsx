@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo } from 'react';
 import { useState } from 'react';
+import { useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
-import { getEmployees, setEmployees, setIsActive } from 'store/employees';
+import { setIsActive } from 'store/employees';
 
 import { alphabet } from 'pages/home/constants';
 
 import LetterEmployees from '../letter-employees';
-import Row from '../row';
 
 import './index.css';
 
@@ -16,7 +16,7 @@ const Employees: React.FC = () => {
 
 	const [sorted, setSorted] = useState<Map<string, typeof employees>>();
 
-	const sortByName = () => {
+	const sortByName = useCallback(() => {
 		const map = new Map<string, typeof employees>();
 		for (let i = 0; i < employees.length; i++) {
 			const e = employees[i];
@@ -28,15 +28,18 @@ const Employees: React.FC = () => {
 			}
 		}
 		setSorted(map);
-	};
+	}, [employees]);
 
 	useEffect(() => {
 		sortByName();
-	}, [employees]);
+	}, [employees, sortByName]);
 
-	const changeActive = (id: string, isActive: boolean) => {
-		dispatch(setIsActive({ id, isActive }));
-	};
+	const changeActive = useCallback(
+		(id: string, isActive: boolean) => {
+			dispatch(setIsActive({ id, isActive }));
+		},
+		[dispatch],
+	);
 
 	const lettersJsx = useMemo(
 		() =>
@@ -51,7 +54,7 @@ const Employees: React.FC = () => {
 					/>
 				);
 			}),
-		[sorted],
+		[sorted, changeActive],
 	);
 	return (
 		<div className="employees-container">

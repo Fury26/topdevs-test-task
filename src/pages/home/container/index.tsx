@@ -11,8 +11,8 @@ const Home: React.FC = () => {
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		dispatch(getEmployees());
-	}, []);
+		dispatch(getEmployees(true));
+	}, [dispatch]);
 
 	return (
 		<div className="home">

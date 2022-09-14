@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchEmployees } from 'requests/employess';
-import { AppDispatch } from 'store';
+import store, { AppDispatch } from 'store';
 import { FetchCallbacks } from 'store/types';
 
 import { Employee } from './types';
@@ -40,14 +40,17 @@ const employeesSlice = createSlice({
 export const { setEmployees, setIsLoading, setIsActive } = employeesSlice.actions;
 
 export const getEmployees =
-	({ success, error }: FetchCallbacks = {}) =>
+	(checkPersisted: boolean, { success, error }: FetchCallbacks = {}) =>
 	async (dispatch: AppDispatch) => {
 		dispatch(setIsLoading(true));
 		const res = await fetchEmployees();
 		dispatch(setIsLoading(false));
 
 		if (res.data) {
-			dispatch(setEmployees(res.data));
+			const { employees } = store.getState();
+			if (!(checkPersisted && employees.employees.length)) {
+				dispatch(setEmployees(res.data));
+			}
 			success && success();
 		} else {
 			error && error();
