@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/topdevs-test-task/static/css/main.8ddb8432.css",
+    "main.js": "/topdevs-test-task/static/js/main.626d8893.js",
+    "index.html": "/topdevs-test-task/index.html",
+    "main.8ddb8432.css.map": "/topdevs-test-task/static/css/main.8ddb8432.css.map",
+    "main.626d8893.js.map": "/topdevs-test-task/static/js/main.626d8893.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ddb8432.css",
+    "static/js/main.626d8893.js"
+  ]
+}
