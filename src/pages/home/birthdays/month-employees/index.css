@@ -1,0 +1,28 @@
+.birthday-container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	padding-bottom: 8px;
+}
+
+.birthday-container::after {
+	content: '';
+	position: absolute;
+	height: 1px;
+	width: 100%;
+	background-color: darkslateblue;
+	left: 0;
+	bottom: 0;
+}
+
+.birthday-container-name {
+	font-weight: bold;
+	margin-bottom: 4px;
+	margin-top: 0;
+}
+
+.birthday-container-employees {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}

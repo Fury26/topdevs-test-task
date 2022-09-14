@@ -2,10 +2,22 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	padding: 1em 1em;
+	margin-bottom: 4px;
 }
-
+.row.__active {
+	background-color: lightblue;
+}
+.row h2 {
+	margin: 0;
+	margin-bottom: 4px;
+}
 .row-radios {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+}
+
+.row-radios input[type='radio'] {
+	cursor: pointer;
 }

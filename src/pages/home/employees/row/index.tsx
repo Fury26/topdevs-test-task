@@ -11,7 +11,7 @@ type Props = {
 
 const Row: React.FC<Props> = ({ name, isActive, toggleIsActive, id }) => {
 	return (
-		<div className="row">
+		<div className={`row ${isActive ? '__active' : ''}`}>
 			<h2>{name}</h2>
 			<div className="row-radios">
 				<div className="row-radios-line">

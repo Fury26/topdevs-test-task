@@ -21,7 +21,7 @@ const LetterEmployees: React.FC<Props> = ({ letter, employees, changeIsActive })
 						<Row
 							id={e.id}
 							key={e.id}
-							name={`${e.lastName} ${e.firstName}`}
+							name={`${e.firstName} ${e.lastName}`}
 							isActive={!!e.isActive}
 							toggleIsActive={(val) => changeIsActive(e.id, val)}
 						/>
