@@ -1,0 +1,11 @@
+.employees-container {
+	width: 100%;
+}
+
+.employees-sorted {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-auto-rows: 400px;
+	row-gap: 20px;
+	column-gap: 10px;
+}

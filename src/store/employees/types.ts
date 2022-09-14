@@ -3,4 +3,5 @@ export type Employee = {
 	firstName: string;
 	lastName: string;
 	dob: string;
+	isActive?: boolean;
 };
